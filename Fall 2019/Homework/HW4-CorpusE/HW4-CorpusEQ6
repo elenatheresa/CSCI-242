@@ -1,0 +1,94 @@
+class node:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value 
+        self.next = None
+
+class HashTable:
+    def __init__(self):
+        self.capacity = None
+        self.size = 0
+        self.buckets = [None] * self.capacity
+
+    def hash(self, key):
+        hashSum = 0
+        for i, c in enumerate(key):
+            hashSum = hashSum + (i + len(key) ** ord(c))
+            hashSum = hashSum % self.capacity
+        return hashSum
+
+    def insert(self, key, value):
+        self.size += 1 
+        index = self.hash(key)
+        node = self.buckets[index]
+        if node is None:
+            self.buckets[index] = node(key, value)
+            return
+        prev = node
+        while node is not None:
+            prev = node 
+            node = node.next
+        prev.next = node(key, value)
+
+    def find(self,key):
+        index = self.hash(key)
+        node = self.buckets[index]
+        while node is not None and node.key != key:
+            node = node.next
+        if node is None:
+            return None
+        else: 
+            return node.value
+    
+    def remove(self, key):
+        index = self.hash(key)
+        node = self.buckets[index]
+        while node is not None and node.key != key:
+            prev = node
+            node = node.next
+        if node is None: 
+            return None 
+
+
+
+class hashTableChaining(self, HashTable):
+    def __init__(self):
+        self.
+
+    
+    def get(key):
+
+    def put(key, value):
+        node
+
+    def remove(key):
+        self.hash(key)
+        if 
+
+
+class hashTableLinearProbing(self, HashTable):
+    def insert(hash)
+
+    def remove (Key):
+
+
+class hashTableQuadraticProbing(self, HashTable):
+    def insert(key):
+
+
+    def remove(self, key):
+
+
+    def search(key):
+    
+
+class hashTableDoubleHashing(self, HashTable):
+
+
+class hashTableCuckoo(self, HashTable):
+    def get(key):
+
+    def remove(key):
+
+    def put(key, value):
+
